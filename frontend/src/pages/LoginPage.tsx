@@ -40,7 +40,7 @@ export default function LoginPage() {
         <div className="text-center mb-8">
           <div className="flex items-center justify-center gap-2 mb-2">
             <CalendarCheck className="h-8 w-8 text-primary" />
-            <h1 className="text-3xl font-bold text-primary">DayForge</h1>
+            <h1 className="text-3xl font-bold text-primary">DayPlanner</h1>
           </div>
           <p className="text-sm text-muted-foreground">Personal Task Tracker</p>
         </div>

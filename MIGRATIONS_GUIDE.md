@@ -20,7 +20,7 @@ Step 1: We updated models.py
 
 Step 2: But the database file was old
 ┌──────────────────────────┐
-│ dayforge.db (SQLite)     │
+│ dayplanner.db (SQLite)     │
 │ ─────────────────────    │
 │ tasks table:             │
 │   title                  │
@@ -65,13 +65,13 @@ Step 3: SQLAlchemy tried to read
 3. Apply migration to database
    $ alembic upgrade head
    ┌────────────────────────────────────────┐
-   │ dayforge.db BEFORE:                    │
+   │ dayplanner.db BEFORE:                    │
    │ ─────────────────────                  │
    │ tasks: title, status, delivery_date    │
    │                                        │
    │ ↓ Migration runs ↓                     │
    │                                        │
-   │ dayforge.db AFTER:                     │
+   │ dayplanner.db AFTER:                     │
    │ ─────────────────────                  │
    │ tasks: title, status, delivery_date,   │
    │        due_date ← ADDED!               │
@@ -257,11 +257,11 @@ import os
 # Use environment variable for production
 DATABASE_URL = os.getenv(
     "DATABASE_URL",
-    "sqlite:///./dayforge.db"  # Default for local dev
+    "sqlite:///./dayplanner.db"  # Default for local dev
 )
 
 # In production, set environment variable:
-# DATABASE_URL=postgresql://user:pass@db.example.com:5432/dayforge
+# DATABASE_URL=postgresql://user:pass@db.example.com:5432/dayplanner
 ```
 
 This way:

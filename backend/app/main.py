@@ -6,7 +6,7 @@ from app.routes import auth, tasks, approvals, summary, notifications, analytics
 
 Base.metadata.create_all(bind=engine)
 
-app = FastAPI(title="DayForge API", version="0.2.0")
+app = FastAPI(title="DayPlanner API", version="0.2.0")
 
 app.add_middleware(
     CORSMiddleware,

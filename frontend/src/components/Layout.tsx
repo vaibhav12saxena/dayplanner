@@ -68,7 +68,7 @@ export default function Layout() {
       <div className="p-4 border-b border-border">
         <h1 className="text-xl font-bold text-primary flex items-center gap-2">
           <CalendarCheck className="h-6 w-6" />
-          DayForge
+          DayPlanner
         </h1>
         <p className="text-xs text-muted-foreground mt-1">Personal Task Tracker</p>
       </div>

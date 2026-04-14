@@ -1,4 +1,4 @@
-# DayForge — Personal Task Tracker
+# DayPlanner — Personal Task Tracker
 
 A personal Jira-like task manager that helps you focus on **one thing at a time** by enforcing a structured workflow: Backlog → Approval → Today/Tomorrow → In Progress → Done.
 

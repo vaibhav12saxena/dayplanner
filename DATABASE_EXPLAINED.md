@@ -8,7 +8,7 @@
 
 **What happened:**
 - We added a new column `due_date` to the `Task` model in Python code
-- But the actual SQLite database file (`dayforge.db`) still had the old schema without that column
+- But the actual SQLite database file (`dayplanner.db`) still had the old schema without that column
 - When SQLAlchemy tried to read tasks, it expected `due_date` but the database didn't have it → crash
 
 **What production apps do:**
@@ -52,12 +52,12 @@ def downgrade():
 **Same database, different tables.**
 
 Think of a database like an Excel workbook:
-- **Database** = the entire `.db` file (like `dayforge.db`)
+- **Database** = the entire `.db` file (like `dayplanner.db`)
 - **Tables** = individual sheets inside (like "Users", "Tasks", "Approvals", "Notifications")
 
-Our `dayforge.db` contains 4 tables:
+Our `dayplanner.db` contains 4 tables:
 ```
-dayforge.db
+dayplanner.db
 ├── users          (id, email, username, password, ...)
 ├── tasks          (id, title, status, assignee_id, creator_id, ...)
 ├── approval_requests (id, task_id, status, ...)
@@ -115,7 +115,7 @@ They're **related** through foreign keys:
 │ Your App (Python)           │
 │  ├─ FastAPI code            │
 │  └─ SQLite library (built-in)│
-│     └─ dayforge.db (file)   │
+│     └─ dayplanner.db (file)   │
 └─────────────────────────────┘
     Everything in one process
     No separate server
@@ -125,7 +125,7 @@ They're **related** through foreign keys:
 **Why SQLite doesn't need installation:**
 - It's a **library**, not a server
 - Comes **built-in** with Python (part of the standard library)
-- The entire database is **one file** (`dayforge.db`)
+- The entire database is **one file** (`dayplanner.db`)
 - No network, no authentication, no separate process
 
 **When to use SQLite:**
@@ -191,10 +191,10 @@ sudo apt install postgresql
 **Update database.py:**
 ```python
 # Instead of:
-SQLALCHEMY_DATABASE_URL = "sqlite:///./dayforge.db"
+SQLALCHEMY_DATABASE_URL = "sqlite:///./dayplanner.db"
 
 # Use:
-SQLALCHEMY_DATABASE_URL = "postgresql://user:password@localhost:5432/dayforge"
+SQLALCHEMY_DATABASE_URL = "postgresql://user:password@localhost:5432/dayplanner"
 ```
 
 **With migrations:**
@@ -220,7 +220,7 @@ alembic upgrade head  # Applies change without deleting data!
 ## Key Takeaways
 
 1. **SQLite = SQL database, just embedded** (not NoSQL)
-2. **One database file = multiple tables** (users, tasks, etc. all in `dayforge.db`)
+2. **One database file = multiple tables** (users, tasks, etc. all in `dayplanner.db`)
 3. **Use migrations in production** (Alembic) to avoid deleting data
 4. **SQLite is great for dev**, but use PostgreSQL for production web apps
 5. **No installation needed** because SQLite is a library, not a server
