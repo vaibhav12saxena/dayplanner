@@ -1,7 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { Plus } from "lucide-react";
 import { Button } from "@/components/ui/Button";
-import TaskCard from "@/components/TaskCard";
 import SortableTaskList from "@/components/SortableTaskList";
 import CreateTaskDialog from "@/components/CreateTaskDialog";
 import OverflowDialog from "@/components/OverflowDialog";

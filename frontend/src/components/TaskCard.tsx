@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import type { Task, TaskPriority, Comment } from "@/types";
 import { PriorityBadge, StatusBadge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
-import { Clock, ArrowRight, ArrowLeft, Trash2, Play, CheckCircle2, User, Calendar, CalendarClock, MessageSquare, Pencil, Check, X, Send, Ban, Link2 } from "lucide-react";
+import { Clock, ArrowRight, ArrowLeft, Trash2, Play, CheckCircle2, User, Calendar, CalendarClock, MessageSquare, Check, X, Send, Ban, Link2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { updateTask, getComments, addComment, updateDependencies, searchTasks } from "@/api/client";
 
@@ -15,7 +15,7 @@ interface TaskCardProps {
   showActions?: boolean;
 }
 
-export default function TaskCard({ task, onMove, onDelete, onRequestApproval, onUpdate, showActions = true }: TaskCardProps) {
+export default function TaskCard({ task, onMove, onDelete, onRequestApproval: _onRequestApproval, onUpdate, showActions = true }: TaskCardProps) {
   const hoursProgress = task.allocated_hours > 0 ? Math.min((task.hours_spent / task.allocated_hours) * 100, 100) : 0;
   const isOvertime = task.hours_spent > task.allocated_hours;
 

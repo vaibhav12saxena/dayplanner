@@ -1,5 +1,4 @@
 import { useEffect, useState, useCallback } from "react";
-import TaskCard from "@/components/TaskCard";
 import SortableTaskList from "@/components/SortableTaskList";
 import OverflowDialog from "@/components/OverflowDialog";
 import type { Task, OverflowInfo } from "@/types";
