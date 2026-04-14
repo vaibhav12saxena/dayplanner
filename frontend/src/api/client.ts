@@ -2,7 +2,7 @@ import axios from "axios";
 import type { Task, ApprovalRequest, DailySummary, User, MoveResponse, UserBrief, Notification as NotifType, Comment, Tag, AnalyticsData, RecurringRule } from "@/types";
 
 const api = axios.create({
-  baseURL: "/api",
+  baseURL: import.meta.env.VITE_API_URL || "/api",
 });
 
 api.interceptors.request.use((config) => {
